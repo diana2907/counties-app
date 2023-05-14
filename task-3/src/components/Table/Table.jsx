@@ -1,7 +1,7 @@
 import { TableRow } from "../TableRow/TableRow";
 import { MainTable, Title, HeadCell } from "./Table.styled";
 
-export const Table = ({ universitiesList }) => {
+export const Table = ({ universitiesList, setCheckedList, checkedList }) => {
   return (
     <>
       {universitiesList.length > 0 && (
@@ -19,7 +19,13 @@ export const Table = ({ universitiesList }) => {
 
           <tbody>
             {universitiesList.map((item, index) => (
-              <TableRow key={index} item={item} index={index} />
+              <TableRow
+                checkedList={checkedList}
+                setCheckedList={setCheckedList}
+                key={index}
+                item={item}
+                index={index}
+              />
             ))}
           </tbody>
         </MainTable>

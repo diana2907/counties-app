@@ -23,7 +23,7 @@ export const ModalWindow = styled.div`
   background-color: rgb(214, 235, 226);
   box-shadow: 0px 1px 3px rgba(109, 87, 87, 0.12),
     0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
+  border-radius: 28px;
 `;
 
 export const Image = styled.img`
@@ -31,7 +31,7 @@ export const Image = styled.img`
   place-items: center;
   width: 100%;
   height: 100%;
-  border-radius: 8px;
+  border-radius: 28px;
 `;
 
 export const CloseButton = styled.button`
@@ -45,4 +45,10 @@ export const CloseButton = styled.button`
   border-radius: 15px;
 
   background-color: rgb(214, 235, 226);
+
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: rgb(144 181 165);
+  }
 `;

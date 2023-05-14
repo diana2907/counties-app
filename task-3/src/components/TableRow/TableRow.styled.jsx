@@ -2,9 +2,24 @@ import styled from "styled-components";
 import { Check } from "@styled-icons/entypo/Check";
 
 export const Cell = styled.td`
-  padding: 20px 30px;
-  max-width: 450px;
-  line-height: 1.5;
+  padding: 5px 5px;
+  max-width: 50px;
+  line-height: 1.2;
+  word-wrap: break-word;
+  @media screen and (min-width: 500px) {
+    padding: 5px 5px;
+    max-width: 70px;
+  }
+
+  @media screen and (min-width: 900px) {
+    padding: 8px 8px;
+    max-width: 150px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding: 15px 15px;
+    max-width: 200px;
+  }
 `;
 
 export const Link = styled.a`
@@ -20,9 +35,17 @@ export const Link = styled.a`
 `;
 
 export const Row = styled.tr`
-  padding: 20px;
+  padding: 5px;
 
   border-top: 3px solid rgb(141 141 219 / 56%);
+
+  @media screen and (min-width: 900px) {
+    padding: 8px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding: 15px;
+  }
 `;
 
 export const Checkbox = styled.span`
@@ -35,7 +58,7 @@ export const Checkbox = styled.span`
   border: 1px solid rgba(126, 126, 126, 0.5);
   border-radius: 4px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     width: 35px;
     height: 35px;
   }
@@ -53,7 +76,7 @@ export const CheckMark = styled(Check)`
     border: none;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     width: 25px;
     height: 25px;
   }

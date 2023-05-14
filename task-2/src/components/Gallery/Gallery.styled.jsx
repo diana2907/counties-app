@@ -68,4 +68,9 @@ export const RestoreButton = styled.button`
   background-color: rgb(144 206 147 / 61%);
   padding: 6px 12px;
   font-size: 24px;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;

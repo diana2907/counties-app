@@ -40,4 +40,5 @@ export const ButtonDelete = styled.button`
   background-color: #fc7676;
   padding: 6px 12px;
   font-size: 18px;
+  font-weight: 600;
 `;

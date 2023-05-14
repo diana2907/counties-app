@@ -21,7 +21,7 @@ export const ImageItem = ({ item, deleteImage }) => {
         <Image src={item.image} alt="title" onClick={toggleModal} />
       </ImageWrapper>
       <ButtonDelete type="button" onClick={() => deleteImage(item.id)}>
-        x
+        X
       </ButtonDelete>
       {isModalOpen && (
         <Modal

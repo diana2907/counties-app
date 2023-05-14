@@ -1,11 +1,5 @@
-export const Counter = () => {
-  const selectedUniversities = () => {
-    const checked = window.localStorage.getItem("checkedList");
-    if (checked !== null) {
-      return checked.length;
-    }
-    return 0;
-  };
+import { CounterWrapper } from "./Counter.styled";
 
-  return <div>Selected: {selectedUniversities()}</div>;
+export const Counter = ({ checkedList }) => {
+  return <CounterWrapper>Selected: {checkedList.length}</CounterWrapper>;
 };

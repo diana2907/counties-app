@@ -7,32 +7,17 @@ import {
   Link,
   Row,
 } from "./TableRow.styled";
-import { useEffect, useState } from "react";
 
-export const TableRow = ({ item, index }) => {
-  const [checkedList, setCheckedList] = useState(() => {
-    const checked = window.localStorage.getItem("checkedList");
-    if (checked !== null) {
-      return JSON.parse(checked);
-    }
-    return [];
-  });
-
-  useEffect(() => {
-    window.localStorage.setItem("checkedList", JSON.stringify(checkedList));
-  }, [checkedList]);
-
+export const TableRow = ({ item, index, setCheckedList, checkedList }) => {
   const onChange = (evt) => {
     const isChecked = evt.target.checked;
     const checked = JSON.parse(window.localStorage.getItem("checkedList"));
 
     if (isChecked && checked) {
       checked.push(index);
-      window.localStorage.setItem("checkedList", JSON.stringify(checked));
       setCheckedList(checked);
     } else {
       const filtered = checked.filter((item) => item !== index);
-      window.localStorage.setItem("checkedList", JSON.stringify(filtered));
       setCheckedList(filtered);
     }
   };
