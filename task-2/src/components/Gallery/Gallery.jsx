@@ -1,26 +1,36 @@
 import { ImagesList } from "components/ImagesList/ImagesList";
-import { Container, GalleryTitle, Time, TitileWrapper } from "./Gallery.styled";
+import {
+  Container,
+  GalleryTitle,
+  Time,
+  TitileWrapper,
+  Quantity,
+  RestoreButton,
+} from "./Gallery.styled";
 import { useEffect, useState } from "react";
+import { images } from "../../data/images";
+import { formatTime } from "helpers/formatDate";
 
 export const Gallery = () => {
-  const addLeadingZero = (value) => {
-    const formatDate = value.toString().padStart(2, "0");
-    return formatDate;
-  };
-
-  const formatTime = () => {
-    const currentTime = new Date();
-    const day = addLeadingZero(currentTime.getDate());
-    const month = addLeadingZero(currentTime.getMonth() + 1);
-    const year = currentTime.getFullYear();
-    const hours = addLeadingZero(currentTime.getHours());
-    const minutes = addLeadingZero(currentTime.getMinutes());
-
-    return day + "." + month + "." + year + " " + hours + ":" + minutes;
-  };
-
   const initialDate = formatTime();
+
   const [date, setDate] = useState(initialDate);
+
+  const [imagesList, setImagesList] = useState(() => {
+    const savedImages = window.localStorage.getItem("images");
+    console.log(savedImages);
+    if (savedImages !== null) {
+      return JSON.parse(savedImages);
+    } else {
+      return images;
+    }
+  });
+
+  useEffect(() => {
+    window.localStorage.setItem("images", JSON.stringify(imagesList));
+    console.log(imagesList);
+  }, [imagesList]);
+
   useEffect(() => {
     const time = setInterval(function () {
       const currentTime = formatTime(new Date());
@@ -31,13 +41,23 @@ export const Gallery = () => {
     };
   }, []);
 
+  const deleteImage = (id) => {
+    setImagesList((prevState) => prevState.filter((image) => image.id !== id));
+  };
+
+  const restoreImages = () => {
+    setImagesList(images);
+  };
+
   return (
     <Container>
       <TitileWrapper>
         <GalleryTitle>Images Gallery</GalleryTitle>
         <Time>{date}</Time>
+        <Quantity>Quantity images: {imagesList.length}</Quantity>
       </TitileWrapper>
-      <ImagesList />
+      <ImagesList deleteImage={deleteImage} images={imagesList} />
+      <RestoreButton onClick={restoreImages}>Restore</RestoreButton>
     </Container>
   );
 };

@@ -12,16 +12,16 @@ import img11 from "../images/11.jpg";
 import img12 from "../images/12.jpg";
 
 export const images = [
-  { image: img1 },
-  { image: img2 },
-  { image: img3 },
-  { image: img4 },
-  { image: img5 },
-  { image: img6 },
-  { image: img7 },
-  { image: img8 },
-  { image: img9 },
-  { image: img10 },
-  { image: img11 },
-  { image: img12 },
+  { id: "1", image: img1 },
+  { id: "2", image: img2 },
+  { id: "3", image: img3 },
+  { id: "4", image: img4 },
+  { id: "5", image: img5 },
+  { id: "6", image: img6 },
+  { id: "7", image: img7 },
+  { id: "8", image: img8 },
+  { id: "9", image: img9 },
+  { id: "10", image: img10 },
+  { id: "11", image: img11 },
+  { id: "12", image: img12 },
 ];

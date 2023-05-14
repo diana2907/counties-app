@@ -33,3 +33,16 @@ export const Image = styled.img`
   height: 100%;
   border-radius: 8px;
 `;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  right: -15px;
+  top: -15px;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 15px;
+
+  background-color: rgb(214, 235, 226);
+`;

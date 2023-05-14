@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { Image } from "./ImageItem.styled";
+import { Image, ButtonDelete, ImageWrapper } from "./ImageItem.styled";
 import { Modal } from "components/Modal/Modal";
+import { useState } from "react";
 
-export const ImageItem = ({ item }) => {
+export const ImageItem = ({ item, deleteImage }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {
@@ -17,7 +17,12 @@ export const ImageItem = ({ item }) => {
 
   return (
     <>
-      <Image src={item.image} alt="title" onClick={toggleModal} />
+      <ImageWrapper isModalOpen={isModalOpen}>
+        <Image src={item.image} alt="title" onClick={toggleModal} />
+      </ImageWrapper>
+      <ButtonDelete type="button" onClick={() => deleteImage(item.id)}>
+        x
+      </ButtonDelete>
       {isModalOpen && (
         <Modal
           closeModal={toggleModal}

@@ -37,6 +37,7 @@ export const GalleryTitle = styled.h1`
 
 export const Time = styled.p`
   font-size: 14px;
+  margin-bottom: 20px;
 
   @media screen and (min-width: 500px) {
     font-size: 18px;
@@ -45,4 +46,26 @@ export const Time = styled.p`
   @media screen and (min-width: 1200px) {
     font-size: 26px;
   }
+`;
+
+export const Quantity = styled.p`
+  font-size: 14px;
+
+  @media screen and (min-width: 500px) {
+    font-size: 18px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    font-size: 26px;
+  }
+`;
+
+export const RestoreButton = styled.button`
+  display: flex;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: 3px solid black;
+  background-color: rgb(144 206 147 / 61%);
+  padding: 6px 12px;
+  font-size: 24px;
 `;
